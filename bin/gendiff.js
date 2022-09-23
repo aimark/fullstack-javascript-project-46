@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
-import {Command } from 'commander/esm.mjs';
+import { Command } from '../node_modules/commander/index.js';
 
 const program = new Command();
 
 program
-  .version('0.1.0')
+  .name('gendif')
   .description('Compares two configuration files and shows a difference.')
-  .argument('<filepath1> <filepath2>')
-  .option('-f, --format <type>', 'output format');
+  .version('0.8.0');
 
-program.parse(process.argv);
+program.parse();
