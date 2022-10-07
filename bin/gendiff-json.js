@@ -9,24 +9,21 @@ const command = ([filepath1, filepath2]) => {
   const path2 = path.resolve(process.cwd(), filepath2);
   const file2json = JSON.parse(fs.readFileSync(path2));
   const keysList = _.uniq(_.sortBy(_.concat(_.keys(file1json), _.keys(file2json))));
-  
+
   let result = '{\n';
   keysList.forEach((elem) => {
-    if ((_.has(file1json, elem) && _.has(file2json, elem)) &&
-      file1json[elem] === file2json[elem]) {
+    if ((_.has(file1json, elem) && _.has(file2json, elem))
+      && file1json[elem] === file2json[elem]) {
       result += `    ${elem}: ${file1json[elem]}\n`;
-    }
-    else if (_.has(file1json, elem) && !_.has(file2json, elem)) {
+    } else if (_.has(file1json, elem) && !_.has(file2json, elem)) {
       result += `  - ${elem}: ${file1json[elem]}\n`;
-    }
-    else if (!_.has(file1json, elem) && _.has(file2json, elem)) {
+    } else if (!_.has(file1json, elem) && _.has(file2json, elem)) {
       result += `  + ${elem}: ${file2json[elem]}\n`;
-    }
-    else {
+    } else {
       result += `  - ${elem}: ${file1json[elem]}\n  + ${elem}: ${file2json[elem]}\n`;
     }
   });
-  console.log(result + `}`);
+  console.log(`${result}\n}`);
 };
 
 program.parse(process.argv);
@@ -37,4 +34,4 @@ if (path.extname(args[0]) === '.json' && path.extname(args[1]) === '.json') {
 } else {
   console.log('Wrong formate');
 }
-//command(args);
+// command(args);
