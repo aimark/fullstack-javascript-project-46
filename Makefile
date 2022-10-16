@@ -7,7 +7,7 @@ start: # запустить приложение
 publish: # выполнить
 	npm publish --dry-run
 
-test:
+test: #?? npm test -- --watch
 	npm test
 
 test-coverage:
@@ -15,3 +15,5 @@ test-coverage:
 
 lint:
 	npx eslint .
+
+.PHONY: test
