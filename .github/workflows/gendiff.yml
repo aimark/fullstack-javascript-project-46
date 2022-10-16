@@ -31,27 +31,30 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: npm install
-        # Install project
-        run: |
-          make install
-        # Add environment variables
-        env:
-          CI: true
-      - name: Run linter
-        # Run Linter
-        run: |
-          make lint
+      - run: make install
+      - run: make lint
       - run: make test
+      # - name: npm install
+        # Install project
+      #  run: |
+      #    make install
+        # Add environment variables
+      #  env:
+      #    CI: true
+      # - name: Run linter
+        # Run Linter
+      #  run: |
+      #    make lint
+      # - run: make test
         # env:
         #   NODE_OPTIONS=--experimental-vm-modules
-      - name: Test & publish code coverage
+      # - name: Test & publish code coverage
         # Publish code coverage on Code Climate
         # https://github.com/paambaati/codeclimate-action
-        uses: paambaati/codeclimate-action@v2.7.4
+      #  uses: paambaati/codeclimate-action@v2.7.4
         # Add Code Climate secret key
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: make test-coverage
-          debug: true
+      #  env:
+      #    CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      #  with:
+      #    coverageCommand: make test-coverage
+      #    debug: true
