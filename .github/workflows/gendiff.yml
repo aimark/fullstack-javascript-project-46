@@ -33,7 +33,7 @@ jobs:
           cache: 'npm'
       - run: make install
       - run: make lint
-      # - run: make test
+      - run: make test
       # - name: npm install
         # Install project
       #  run: |
@@ -45,9 +45,9 @@ jobs:
         # Run Linter
       #  run: |
       #    make lint
-      - run: make test
-        env:
-          NODE_OPTIONS=--experimental-vm-modules
+      # - run: make test
+      #    env:
+      #      NODE_OPTIONS=--experimental-vm-modules
       # - name: Test & publish code coverage
         # Publish code coverage on Code Climate
         # https://github.com/paambaati/codeclimate-action
