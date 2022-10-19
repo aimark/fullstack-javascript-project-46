@@ -1,7 +1,7 @@
-import genDiff from '../src/fgendiff.js';
 import path from 'path';
 import fs from 'fs';
 import { test, expect } from '@jest/globals';
+import genDiff from '../src/fgendiff.js';
 
 const filepath1 = './__fixtures__/file1.json';
 const filepath2 = './__fixtures__/file2.json';
