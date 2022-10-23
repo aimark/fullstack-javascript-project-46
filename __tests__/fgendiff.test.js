@@ -3,8 +3,8 @@ import fs from 'fs';
 import { test, expect } from '@jest/globals';
 import genDiff from '../src/fgendiff.js';
 
-const filepath1 = './__fixtures__/file1.json';
-const filepath2 = './__fixtures__/file2.json';
+const filepath1 = './__tests__/__fixtures__/file1.json';
+const filepath2 = './__tests__/__fixtures__/file2.json';
 
 const file1json = JSON.parse(fs.readFileSync(path.resolve(filepath1)), 'utf8');
 const file2json = JSON.parse(fs.readFileSync(path.resolve(filepath2)), 'utf8');
