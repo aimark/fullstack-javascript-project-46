@@ -3,7 +3,6 @@
 import { Command } from 'commander';
 import path from 'path';
 import fs from 'fs';
-import _ from 'lodash';
 import genDiff from '../src/fgendiff.js';
 
 const program = new Command();

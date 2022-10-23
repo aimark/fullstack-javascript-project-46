@@ -6,7 +6,7 @@ export default (file1, file2) => {
   keysList.forEach((elem) => {
     if ((_.has(file1, elem) && _.has(file2, elem))
       && file1[elem] === file2[elem]) {
-        result += `    ${elem}: ${file1[elem]}\n`;
+      result += `    ${elem}: ${file1[elem]}\n`;
     } else if (_.has(file1, elem) && !_.has(file2, elem)) {
       result += `  - ${elem}: ${file1[elem]}\n`;
     } else if (!_.has(file1, elem) && _.has(file2, elem)) {
@@ -15,5 +15,6 @@ export default (file1, file2) => {
       result += `  - ${elem}: ${file1[elem]}\n  + ${elem}: ${file2[elem]}\n`;
     }
   });
-  return result += `}`;
-}
+  result += '}';
+  return result;
+};
